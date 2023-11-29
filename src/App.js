@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Ratings from './components/Ratings/Ratings';
 
 function App() {
+  const [rates, setRates] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Ratings maxRating={10} color='orange' size={24} setRates={setRates}/>
+      {/* <Ratings maxRating={5} color='orange' size={24} message={['Terrible', 'Bad', 'Okey', 'Good', 'Amazing']} setRates={setRates}/> */}
+      <p>This Movie is rated {rates} stars.</p>
     </div>
   );
 }
